@@ -1051,13 +1051,8 @@ h4 { font-size: 1rem; }
   .gallery-item { flex: 0 0 calc(33.333% - 0.334rem); }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-}
 
-/* ----------------------------------------------------------
-   RESPONSIVE — Mobile (≤ 768px)
-   ---------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Header */
+  /* Header — hamburger at tablet too */
   .header-nav {
     display: none;
     position: absolute;
@@ -1078,9 +1073,16 @@ h4 { font-size: 1rem; }
     font-size: 1rem;
     border-bottom: 1px solid var(--clr-border);
   }
-  .header-inner { gap: 0; }
   .header-cta { display: none; }
   .mobile-menu-toggle { display: flex; }
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE — Mobile (≤ 768px)
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Header */
+  .header-inner { gap: 0; }
 
   /* Trust bar */
   .trust-inner { flex-wrap: wrap; }
