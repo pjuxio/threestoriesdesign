@@ -1030,12 +1030,10 @@ h4 { font-size: 1rem; }
    ---------------------------------------------------------- */
 @media (max-width: 1024px) {
   .hero-inner {
-    grid-template-columns: 1fr;
-    max-width: 580px;
-    margin-inline: auto;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
   }
-  .hero-mobile-cta { display: block; margin-bottom: 2rem; }
-  .hero-form-card  { max-width: 500px; margin-inline: auto; }
+  .hero-form-card  { max-width: none; }
 
   .why-inner    { grid-template-columns: 1fr; gap: 3rem; }
   .why-image-col { max-width: 480px; }
@@ -1083,6 +1081,15 @@ h4 { font-size: 1rem; }
 @media (max-width: 768px) {
   /* Header */
   .header-inner { gap: 0; }
+
+  /* Hero — single column on mobile */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-inline: auto;
+  }
+  .hero-mobile-cta { display: block; margin-bottom: 2rem; }
+  .hero-form-card  { max-width: none; }
 
   /* Trust bar */
   .trust-inner { flex-wrap: wrap; }
@@ -1137,6 +1144,4 @@ h4 { font-size: 1rem; }
   .testimonials-grid   { grid-template-columns: repeat(2, 1fr); max-width: none; }
   .gallery-item        { flex: 0 0 calc(33.333% - 0.334rem); }
   .trust-item          { flex: 1 1 18%; }
-  .hero-inner          { max-width: 680px; }
-  .hero-form-card      { max-width: 600px; }
 }
