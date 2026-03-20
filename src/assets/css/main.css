@@ -227,6 +227,40 @@ h4 { font-size: 1rem; }
   gap: 1rem;
 }
 
+/* Two-step form */
+.form-step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.75rem 1.75rem 0;
+}
+.step-pip {
+  height: 6px;
+  width: 18px;
+  border-radius: 3px;
+  background: var(--clr-border);
+  transition: background var(--ease), width var(--ease);
+}
+.step-pip.active {
+  background: var(--clr-accent);
+  width: 32px;
+}
+.form-step-back {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.form-step-back button {
+  background: none;
+  border: none;
+  color: var(--clr-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color var(--ease);
+}
+.form-step-back button:hover { color: var(--clr-primary); }
+
 .form-disclaimer {
   text-align: center;
   font-size: .78rem;
@@ -355,7 +389,7 @@ h4 { font-size: 1rem; }
    ---------------------------------------------------------- */
 .hero {
   background: linear-gradient(135deg, var(--clr-primary) 0%, #0f2240 100%);
-  padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+  padding: clamp(3rem, 6vw, 10rem) 0 clamp(3.5rem, 7vw, 11rem);
   position: relative;
   overflow: hidden;
 }
@@ -389,6 +423,7 @@ h4 { font-size: 1rem; }
 }
 
 .hero-content h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   color: var(--clr-white);
   margin-bottom: 1.25rem;
 }
@@ -655,7 +690,7 @@ h4 { font-size: 1rem; }
 }
 .service-area-inner {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: 1fr 420px;
   gap: 4rem;
   align-items: start;
 }
@@ -678,20 +713,11 @@ h4 { font-size: 1rem; }
   padding: .3rem 0;
 }
 
-.area-cta-box {
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.15);
+.area-map {
   border-radius: var(--radius-lg);
-  padding: 2.25rem;
-  text-align: center;
-  backdrop-filter: blur(8px);
-}
-.area-cta-box h3   { color: var(--clr-white); font-size: 1.2rem; margin-bottom: .75rem; }
-.area-cta-box > p  { color: rgba(255,255,255,.75); font-size: .9rem; margin-bottom: 1.5rem; line-height: 1.7; }
-.area-note {
-  margin-top: .875rem !important;
-  font-size: .78rem !important;
-  color: rgba(255,255,255,.45) !important;
+  overflow: hidden;
+  height: 420px;
+  box-shadow: var(--shadow-lg);
 }
 
 /* ----------------------------------------------------------
@@ -1098,4 +1124,17 @@ h4 { font-size: 1rem; }
   .gallery-item { flex: 0 0 calc(50% - 0.175rem); }
   .lightbox-prev { left: 0.5rem; }
   .lightbox-next { right: 0.5rem; }
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE — Tablet portrait (600px – 1024px)
+   Placed after mobile rules so it wins the cascade at 768px
+   ---------------------------------------------------------- */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .services-grid       { grid-template-columns: repeat(3, 1fr); }
+  .testimonials-grid   { grid-template-columns: repeat(2, 1fr); max-width: none; }
+  .gallery-item        { flex: 0 0 calc(33.333% - 0.334rem); }
+  .trust-item          { flex: 1 1 18%; }
+  .hero-inner          { max-width: 680px; }
+  .hero-form-card      { max-width: 600px; }
 }

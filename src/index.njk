@@ -13,6 +13,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
 
@@ -31,10 +32,9 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
 
     <nav class="header-nav" id="header-nav" aria-label="Primary navigation">
       <a href="#services">Services</a>
-      <a href="#about">About</a>
+      <a href="#portfolio">Our Work</a>
       <a href="#service-area">Service Area</a>
       <a href="#testimonials">Reviews</a>
-      <a href="#portfolio">Our Work</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -71,56 +71,76 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
       <ul class="hero-checks">
         <li><span class="check">&#10003;</span> Free estimates &mdash; no obligation</li>
         <li><span class="check">&#10003;</span> On time, on budget &mdash; guaranteed</li>
-        <li><span class="check">&#10003;</span> 100% satisfaction guarantee</li>
+        <li><span class="check">&#10003;</span> Quality craftsmanship, every time</li>
       </ul>
       <p class="hero-subtext">Licensed &amp; insured general contractor serving Brookline, Boston, Newton, Cambridge &amp; surrounding communities.</p>
     </div>
 
     <div class="hero-form-card">
       <div class="form-card-header">
-        <h2>Get Your Free Estimate</h2>
-        <p>We respond within 2 hours</p>
+        <h2>Tell us about your project</h2>
+        <p>We&rsquo;ll reach out to gather more info before a site visit.</p>
       </div>
       <form class="quote-form" id="hero-quote-form" name="hero-quote" data-netlify="true" novalidate>
         <input type="hidden" name="form-name" value="hero-quote">
-        <div class="form-group">
-          <label for="hero-name">Your Name <span class="req">*</span></label>
-          <input type="text" id="hero-name" name="name" placeholder="John Smith" required>
+
+        <div class="form-step-indicator">
+          <span class="step-pip active"></span>
+          <span class="step-pip"></span>
         </div>
-        <div class="form-group">
-          <label for="hero-phone">Phone Number <span class="req">*</span></label>
-          <input type="tel" id="hero-phone" name="phone" placeholder="(240) 555-0000" required>
+
+        <!-- Step 1: Contact info -->
+        <div class="form-step" id="hero-step-1">
+          <div class="form-group">
+            <label for="hero-name">Your Name <span class="req">*</span></label>
+            <input type="text" id="hero-name" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="hero-email">Email <span class="req">*</span></label>
+            <input type="email" id="hero-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <button type="button" class="btn btn-accent btn-full" id="hero-next-btn">
+            Next: Project Details &rarr;
+          </button>
         </div>
-        <div class="form-group">
-          <label for="hero-service">Project Type <span class="req">*</span></label>
-          <select id="hero-service" name="service" required>
-            <option value="">Select a project type&hellip;</option>
-            <option>Kitchen Remodeling</option>
-            <option>Bathroom Remodeling</option>
-            <option>Home Addition</option>
-            <option>Basement Finishing</option>
-            <option>Full Home Renovation</option>
-            <option>Flooring Installation</option>
-            <option>Carpentry &amp; Custom Millwork</option>
-            <option>Deck &amp; Outdoor Living</option>
-            <option>Window &amp; Door Replacement</option>
-            <option>Interior &amp; Exterior Painting</option>
-            <option>Other</option>
-          </select>
+
+        <!-- Step 2: Project info -->
+        <div class="form-step" id="hero-step-2" hidden>
+          <div class="form-group">
+            <label for="hero-service">Project Type <span class="req">*</span></label>
+            <select id="hero-service" name="service" required>
+              <option value="">Select a project type&hellip;</option>
+              <option>Kitchen Remodeling</option>
+              <option>Bathroom Remodeling</option>
+              <option>Home Addition</option>
+              <option>Basement Finishing</option>
+              <option>Full Home Renovation</option>
+              <option>Flooring Installation</option>
+              <option>Carpentry &amp; Custom Millwork</option>
+              <option>Deck &amp; Outdoor Living</option>
+              <option>Window &amp; Door Replacement</option>
+              <option>Interior &amp; Exterior Painting</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hero-message">Brief Description</label>
+            <textarea id="hero-message" name="message" rows="5" placeholder="Tell us a bit about what you need&hellip;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-full">
+            Request My Free Quote &rarr;
+          </button>
+          <div class="form-step-back">
+            <button type="button" id="hero-back-btn">&larr; Back</button>
+          </div>
+          <p class="form-disclaimer">No spam, we promise.</p>
         </div>
-        <div class="form-group">
-          <label for="hero-message">Brief Description</label>
-          <textarea id="hero-message" name="message" rows="3" placeholder="Tell us a bit about what you need&hellip;"></textarea>
-        </div>
-        <button type="submit" class="btn btn-accent btn-full">
-          Request My Free Quote &rarr;
-        </button>
-        <p class="form-disclaimer">No spam, ever. We&rsquo;ll call you back within 2 hours.</p>
+
       </form>
       <div class="form-success" id="hero-form-success" hidden>
         <div class="success-icon">&#10003;</div>
         <h3>Request Received!</h3>
-        <p>We&rsquo;ll be in touch shortly. For immediate help, call <a href="tel:+16175550100">(617) 555-0100</a>.</p>
+        <p>Thanks! We&rsquo;ll be in touch soon.</p>
       </div>
     </div>
 
@@ -134,7 +154,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
 <section class="trust-bar" aria-label="Trust indicators">
   <div class="container trust-inner">
     <div class="trust-item">
-      <strong>500+</strong>
+      <strong>50+</strong>
       <span>Projects Completed</span>
     </div>
     <div class="trust-divider" aria-hidden="true"></div>
@@ -168,7 +188,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
   <div class="container">
     <div class="section-header fade-in">
       <span class="section-label">What We Do</span>
-      <h2>Renovation &amp; Remodeling Services for Greater Boston Homeowners</h2>
+      <h2>Renovation &amp; Remodeling Services for Boston Area Homeowners</h2>
       <p>From targeted remodels to full-home transformations, we deliver quality craftsmanship, clear communication, and results you&rsquo;ll love for years to come.</p>
     </div>
 
@@ -261,7 +281,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
     <div class="section-header fade-in">
       <span class="section-label">Our Work</span>
       <h2>Recent Projects</h2>
-      <p>A look at renovations and remodels we&rsquo;ve completed for Greater Boston homeowners.</p>
+      <p>A look at renovations and remodels we&rsquo;ve completed for homeowners in the Boston area.</p>
     </div>
 
     <div class="gallery-grid fade-in">
@@ -302,15 +322,15 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
 
 
 <!-- =========================================================
-     WHY CHOOSE US
-     ========================================================= -->
+     WHY CHOOSE US — hidden, kept for future use
+     =========================================================
 <section class="why-us" id="about">
   <div class="container why-inner">
 
     <div class="why-content fade-in">
       <span class="section-label">Why Choose Us</span>
       <h2>Greater Boston Homeowners Trust Three Stories Design</h2>
-      <p>We&rsquo;re not a faceless general contractor &mdash; we&rsquo;re your neighbors in Brookline. We care deeply about the craftsmanship that goes into every project and treat every home as if it were our own.</p>
+      <p>We care deeply about the craftsmanship that goes into every project and treat every home as if it were our own.</p>
       <a href="#contact" class="btn btn-primary why-cta">Get Your Free Estimate &rarr;</a>
     </div>
 
@@ -326,6 +346,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
 
   </div>
 </section>
+========================================================= -->
 
 
 <!-- =========================================================
@@ -369,12 +390,7 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
       </div>
     </div>
 
-    <div class="area-cta-box fade-in">
-      <h3>Is your home in our service area?</h3>
-      <p>Call or text us to confirm. We&rsquo;ll give you a straight answer and a free estimate.</p>
-      <a href="tel:+16175550100" class="btn btn-accent btn-lg">&#128222; (617) 555-0100</a>
-      <p class="area-note">Available Mon&ndash;Sat, 8am&ndash;6pm</p>
-    </div>
+    <div class="area-map" id="service-area-map"></div>
 
   </div>
 </section>
@@ -443,15 +459,6 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
           <div>
             <strong>Call or Text</strong>
             <a href="tel:+16175550100">(617) 555-0100</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="detail-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <strong>Email</strong>
-            <a href="mailto:build@threestories.design">build@threestories.design</a>
           </div>
         </div>
         <div class="contact-detail">
@@ -586,6 +593,57 @@ description: "Licensed & insured general contractor serving Brookline, Boston, N
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('service-area-map');
+  if (!el) return;
+
+  var map = L.map('service-area-map', {
+    center: [42.355, -71.18],
+    zoom: 10,
+    scrollWheelZoom: false,
+    zoomControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  var serviceArea = [
+    [42.447, -71.232], // Lexington
+    [42.430, -71.155], // Arlington
+    [42.420, -71.105], // Medford
+    [42.395, -71.098], // Somerville
+    [42.373, -71.065], // Cambridge / Boston NE
+    [42.358, -71.053], // Boston east
+    [42.305, -71.110], // Jamaica Plain
+    [42.278, -71.235], // Needham
+    [42.295, -71.295], // Wellesley
+    [42.368, -71.310], // Weston
+    [42.447, -71.232]  // close
+  ];
+
+  L.polygon(serviceArea, {
+    color: '#1e3a5f',
+    weight: 2,
+    fillColor: '#1e3a5f',
+    fillOpacity: 0.12
+  }).addTo(map);
+
+  L.circleMarker([42.3317, -71.1212], {
+    radius: 7,
+    color: '#f97316',
+    fillColor: '#f97316',
+    fillOpacity: 1,
+    weight: 2
+  }).bindTooltip('Brookline, MA — Home Base', { permanent: false }).addTo(map);
+
+  setTimeout(function () { map.invalidateSize(); }, 100);
+}());
+</script>
 <script src="/assets/js/main.js"></script>
 </body>
 </html>

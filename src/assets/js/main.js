@@ -67,11 +67,12 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Validate required fields
+      // Validate required fields (skip fields inside hidden steps)
       var fields  = form.querySelectorAll('[required]');
       var isValid = true;
 
       fields.forEach(function (field) {
+        if (field.closest('[hidden]')) return;
         var empty = !field.value.trim();
         field.classList.toggle('invalid', empty);
         if (empty) isValid = false;
@@ -111,6 +112,46 @@
 
   initForm('hero-quote-form',    'hero-form-success');
   initForm('contact-quote-form', 'contact-form-success');
+
+  /* ----------------------------------------------------------
+     Two-step hero form
+     ---------------------------------------------------------- */
+  var heroStep1   = document.getElementById('hero-step-1');
+  var heroStep2   = document.getElementById('hero-step-2');
+  var heroNextBtn = document.getElementById('hero-next-btn');
+  var heroBackBtn = document.getElementById('hero-back-btn');
+  var stepPips    = document.querySelectorAll('#hero-quote-form .step-pip');
+
+  function setStep(step) {
+    if (step === 2) {
+      heroStep1.setAttribute('hidden', '');
+      heroStep2.removeAttribute('hidden');
+    } else {
+      heroStep2.setAttribute('hidden', '');
+      heroStep1.removeAttribute('hidden');
+    }
+    stepPips.forEach(function (pip, i) {
+      pip.classList.toggle('active', i < step);
+    });
+  }
+
+  if (heroNextBtn) {
+    heroNextBtn.addEventListener('click', function () {
+      var fields = heroStep1.querySelectorAll('[required]');
+      var valid  = true;
+      fields.forEach(function (field) {
+        var empty = !field.value.trim();
+        field.classList.toggle('invalid', empty);
+        if (empty) valid = false;
+      });
+      if (!valid) { heroStep1.querySelector('.invalid').focus(); return; }
+      setStep(2);
+    });
+  }
+
+  if (heroBackBtn) {
+    heroBackBtn.addEventListener('click', function () { setStep(1); });
+  }
 
   /* ----------------------------------------------------------
      Scroll animations — Intersection Observer
