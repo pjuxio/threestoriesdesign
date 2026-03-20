@@ -533,12 +533,14 @@ h4 { font-size: 1rem; }
   background: var(--clr-light);
 }
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.125rem;
   margin-bottom: 2.5rem;
 }
 .service-card {
+  flex: 0 0 calc(20% - 0.9rem);
   background: var(--clr-white);
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
@@ -728,10 +730,14 @@ h4 { font-size: 1rem; }
   background: var(--clr-white);
 }
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   margin-bottom: 3rem;
+}
+.testimonial-card {
+  flex: 0 0 calc(33.333% - 1rem);
 }
 .testimonial-card {
   background: var(--clr-light);
@@ -1039,7 +1045,7 @@ h4 { font-size: 1rem; }
   .service-area-inner .area-map     { order: -1; }
   .service-area-inner .area-content { order: 0; }
 
-  .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  .testimonial-card { flex: 0 0 100%; max-width: 480px; }
   .testimonial-card.featured { transform: none; }
 
   /* Gallery */
@@ -1107,7 +1113,7 @@ h4 { font-size: 1rem; }
   .counties-grid { grid-template-columns: 1fr; gap: 1.25rem; }
 
   /* Services */
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card { flex: 0 0 calc(50% - 0.5625rem); }
 
   /* Forms */
   .form-row { grid-template-columns: 1fr; }
@@ -1124,7 +1130,7 @@ h4 { font-size: 1rem; }
    RESPONSIVE — Small mobile (≤ 480px)
    ---------------------------------------------------------- */
 @media (max-width: 480px) {
-  .services-grid { grid-template-columns: 1fr; }
+  .service-card { flex: 0 0 100%; }
   .trust-item { flex: 1 1 100%; }
   .review-badges { gap: 1.5rem; }
   .gallery-item { flex: 0 0 calc(50% - 0.175rem); }
@@ -1137,8 +1143,8 @@ h4 { font-size: 1rem; }
    Placed after mobile rules so it wins the cascade at 768px
    ---------------------------------------------------------- */
 @media (min-width: 600px) and (max-width: 1024px) {
-  .services-grid       { grid-template-columns: repeat(3, 1fr); }
-  .testimonials-grid   { grid-template-columns: repeat(2, 1fr); max-width: none; }
+  .service-card        { flex: 0 0 calc(25% - 0.844rem); }
+  .testimonial-card    { flex: 0 0 calc(50% - 0.75rem); max-width: none; }
   .gallery-item        { flex: 0 0 calc(33.333% - 0.334rem); }
   .trust-item          { flex: 1 1 18%; }
 }
