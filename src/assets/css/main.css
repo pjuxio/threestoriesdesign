@@ -164,7 +164,7 @@ h4 { font-size: 1rem; }
    ---------------------------------------------------------- */
 .section-header {
   text-align: center;
-  max-width: 680px;
+  max-width: 780px;
   margin-inline: auto;
   margin-bottom: 3.5rem;
 }
@@ -554,6 +554,7 @@ h4 { font-size: 1rem; }
 }
 .why-content h2     { margin: .5rem 0 1rem; }
 .why-content > p    { color: var(--clr-muted); font-size: 1.05rem; margin-bottom: 2.25rem; }
+.why-cta            { margin-top: 1.5rem; display: inline-flex; }
 
 .why-features {
   display: flex;
@@ -891,6 +892,114 @@ h4 { font-size: 1rem; }
 }
 
 /* ----------------------------------------------------------
+   PORTFOLIO GALLERY
+   ---------------------------------------------------------- */
+.portfolio {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--clr-white);
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.gallery-item {
+  flex: 0 0 calc(25% - 0.375rem);
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: var(--clr-border);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus img {
+  transform: scale(1.05);
+  filter: brightness(0.82);
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+.gallery-cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox-img-wrap img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--ease);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover { background: rgba(255, 255, 255, 0.28); }
+
+.lightbox-close { top: 1.25rem; right: 1.25rem; font-size: 1.6rem; }
+.lightbox-prev  { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+}
+
+/* ----------------------------------------------------------
    RESPONSIVE — Tablet (≤ 1024px)
    ---------------------------------------------------------- */
 @media (max-width: 1024px) {
@@ -911,6 +1020,9 @@ h4 { font-size: 1rem; }
 
   .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
   .testimonial-card.featured { transform: none; }
+
+  /* Gallery */
+  .gallery-item { flex: 0 0 calc(33.333% - 0.334rem); }
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
@@ -940,7 +1052,8 @@ h4 { font-size: 1rem; }
     font-size: 1rem;
     border-bottom: 1px solid var(--clr-border);
   }
-  .header-cta .btn { display: none; }
+  .header-inner { gap: 0; }
+  .header-cta { display: none; }
   .mobile-menu-toggle { display: flex; }
 
   /* Trust bar */
@@ -968,6 +1081,9 @@ h4 { font-size: 1rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-form-wrap { padding: 1.5rem; }
 
+  /* Gallery */
+  .gallery-item { flex: 0 0 calc(50% - 0.25rem); }
+
   /* Footer */
   .footer-inner { grid-template-columns: 1fr; gap: 1.75rem; }
 }
@@ -979,4 +1095,7 @@ h4 { font-size: 1rem; }
   .services-grid { grid-template-columns: 1fr; }
   .trust-item { flex: 1 1 100%; }
   .review-badges { gap: 1.5rem; }
+  .gallery-item { flex: 0 0 calc(50% - 0.175rem); }
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
 }

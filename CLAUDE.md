@@ -1,7 +1,7 @@
-# CLAUDE.md — Handyman-11ty
+# CLAUDE.md — Three Stories Design
 
 ## Project Overview
-Single-page lead generation website for "Pro Handyman MD," a Maryland-based handyman service. Built with Eleventy (11ty) v3 and deployed to Netlify.
+Single-page lead generation website for **Three Stories Design**, a general contracting / renovation & remodeling company based in Brookline, MA, serving the Greater Boston area. Built with Eleventy (11ty) v3 and deployed to Netlify.
 
 ## Commands
 
@@ -15,8 +15,8 @@ npm run build    # Production build → _site/
 ```
 src/
 ├── _data/site.js        # Global data (e.g., current year)
-├── assets/css/main.css  # All styles (~983 lines, CSS custom properties)
-├── assets/js/main.js    # Vanilla JS (~136 lines, IIFE pattern)
+├── assets/css/main.css  # All styles (~982 lines, CSS custom properties)
+├── assets/js/main.js    # Vanilla JS (~135 lines, IIFE pattern)
 └── index.njk            # Single Nunjucks template (~634 lines)
 _site/                   # Build output (do not edit)
 .eleventy.js             # Eleventy config (input: src, output: _site)
@@ -42,8 +42,18 @@ netlify.toml             # Build + redirect config
 - Single-page layout: sections use anchor IDs (`#services`, `#about`, `#contact`)
 - Inline SVG icons throughout
 
+## Content
+Keep all copy focused on **renovation, remodeling, and general contracting** — not handyman/repairs.
+
+Services: kitchen remodeling, bathroom remodeling, home additions, basement finishing, full home renovation, flooring, carpentry/millwork, decks, windows/doors, painting.
+
+Contact: build@threestories.design · (617) 555-0100 (placeholder) · Licensed & insured in Massachusetts
+
+Service area: Brookline, Boston, Newton, Cambridge, Somerville, Watertown, Belmont, Arlington, Chestnut Hill, Jamaica Plain, Needham, Wellesley, Lexington, Weston, Medford
+
 ## Forms
 Two forms (hero + contact), both processed by Netlify Forms:
+- `hero-quote` (hero section) and `contact-quote` (contact section)
 - Identified by `name` attribute on `<form>` elements
 - Client-side validation only (Netlify handles backend validation)
 - Success state: hidden div revealed after successful `fetch()` submission
@@ -57,3 +67,4 @@ Two forms (hero + contact), both processed by Netlify Forms:
 - Do not add npm dependencies without good reason — the zero-runtime-dependency approach is intentional
 - Do not edit files in `_site/` — it is fully generated on build
 - Do not introduce a JS framework; vanilla JS is the deliberate choice here
+- Do not use handyman/repair language — this is a GC/remodeling company
