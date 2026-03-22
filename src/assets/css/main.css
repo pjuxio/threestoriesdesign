@@ -155,7 +155,7 @@ h4 { font-size: 1rem; }
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: #b45309;
   margin-bottom: .625rem;
 }
 
@@ -701,7 +701,7 @@ h4 { font-size: 1rem; }
 .area-content > p  { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 2rem; }
 
 .counties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.county-group h4 {
+.county-group h3 {
   font-family: var(--font-heading);
   font-size: .72rem;
   text-transform: uppercase;
@@ -902,7 +902,7 @@ h4 { font-size: 1rem; }
 .footer-bottom p {
   font-size: .78rem;
   text-align: center;
-  color: rgba(255,255,255,.3);
+  color: rgba(255,255,255,.6);
 }
 
 /* ----------------------------------------------------------
