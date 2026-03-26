@@ -1,7 +1,7 @@
-# CLAUDE.md — Three Stories Design
+# CLAUDE.md — Daughters & Sons Contracting
 
 ## Project Overview
-Single-page lead generation website for **Three Stories Design**, a general contracting / renovation & remodeling company based in Brookline, MA, serving the Greater Boston area. Built with Eleventy (11ty) v3 and deployed to Netlify.
+Single-page lead generation website for **Daughters & Sons Contracting**, a general contracting / renovation & remodeling company based in Brookline, MA, serving the Greater Boston area. Built with Eleventy (11ty) v3 and deployed to Netlify.
 
 ## Commands
 
@@ -47,7 +47,7 @@ Keep all copy focused on **renovation, remodeling, and general contracting** —
 
 Services: kitchen remodeling, bathroom remodeling, home additions, basement finishing, full home renovation, flooring, carpentry/millwork, decks, windows/doors, painting.
 
-Contact: build@threestories.design · (617) 555-0100 (placeholder) · Licensed & insured in Massachusetts
+Contact: build@daughtersandsons.com · (617) 555-0100 (placeholder) · Licensed & insured in Massachusetts
 
 Service area: Brookline, Boston, Newton, Cambridge, Somerville, Watertown, Belmont, Arlington, Chestnut Hill, Jamaica Plain, Needham, Wellesley, Lexington, Weston, Medford
 
