@@ -890,7 +890,7 @@ h4 { font-size: 1rem; }
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
-  padding: 1.25rem var(--pad);
+  padding: 1.25rem 0;
 }
 .footer-bottom p {
   font-size: .78rem;
