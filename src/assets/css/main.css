@@ -1114,7 +1114,7 @@ h4 { font-size: 1rem; }
 
   /* Forms */
   .form-row { grid-template-columns: 1fr; }
-  .contact-form-wrap { padding: 1.5rem; }
+  .contact-form-wrap { padding: 1.25rem 1rem; }
 
   /* Gallery */
   .gallery-item { flex: 0 0 calc(50% - 0.25rem); }
