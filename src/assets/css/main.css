@@ -45,6 +45,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
+  overflow-x: hidden;
 }
 
 body {
@@ -54,7 +55,6 @@ body {
   color: var(--clr-text);
   background: var(--clr-white);
   -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -693,6 +693,7 @@ h4 { font-size: 1rem; }
   gap: 4rem;
   align-items: start;
 }
+.service-area-inner > * { min-width: 0; }
 .area-content .section-label { color: #fcd34d; }
 .area-content h2   { color: var(--clr-white); margin: .5rem 0 1rem; }
 .area-content > p  { color: rgba(255,255,255,.8); font-size: 1.05rem; margin-bottom: 2rem; }
@@ -715,6 +716,7 @@ h4 { font-size: 1rem; }
 .area-map {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  width: 100%;
   height: 420px;
   box-shadow: var(--shadow-lg);
 }
