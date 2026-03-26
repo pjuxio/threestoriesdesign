@@ -802,6 +802,7 @@ h4 { font-size: 1rem; }
   align-items: flex-start;
   gap: 1rem;
 }
+.contact-detail > div { min-width: 0; }
 .detail-icon {
   width: 44px;
   height: 44px;
