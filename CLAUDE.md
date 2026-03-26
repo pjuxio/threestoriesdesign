@@ -15,9 +15,9 @@ npm run build    # Production build → _site/
 ```
 src/
 ├── _data/site.js        # Global data (e.g., current year)
-├── assets/css/main.css  # All styles (~982 lines, CSS custom properties)
-├── assets/js/main.js    # Vanilla JS (~135 lines, IIFE pattern)
-└── index.njk            # Single Nunjucks template (~634 lines)
+├── assets/css/main.css  # All styles (~1150 lines, CSS custom properties)
+├── assets/js/main.js    # Vanilla JS (~241 lines, IIFE pattern)
+└── index.njk            # Single Nunjucks template (~648 lines)
 _site/                   # Build output (do not edit)
 .eleventy.js             # Eleventy config (input: src, output: _site)
 netlify.toml             # Build + redirect config

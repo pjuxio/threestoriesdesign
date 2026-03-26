@@ -1,5 +1,5 @@
 /**
- * Handyman Pro — Main JavaScript
+ * Three Stories Design — Main JavaScript
  *
  * Handles: smooth scroll, sticky header, mobile menu,
  * form validation/submission (Netlify Forms), scroll animations.

@@ -1,5 +1,5 @@
 /* ==========================================================
-   Handyman Pro — Main Stylesheet
+   Three Stories Design — Main Stylesheet
    ========================================================== */
 
 /* ----------------------------------------------------------
@@ -1133,7 +1133,7 @@ h4 { font-size: 1rem; }
   .service-card { flex: 0 0 100%; }
   .trust-item { flex: 1 1 100%; }
   .review-badges { gap: 1.5rem; }
-  .gallery-item { flex: 0 0 calc(50% - 0.175rem); }
+  .gallery-item { flex: 0 0 calc(50% - 0.25rem); }
   .lightbox-prev { left: 0.5rem; }
   .lightbox-next { right: 0.5rem; }
 }
