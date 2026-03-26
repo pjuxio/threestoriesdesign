@@ -320,7 +320,7 @@ h4 { font-size: 1rem; }
   font-size: 1.2rem;
   font-weight: 800;
   color: var(--clr-primary);
-  white-space: nowrap;
+  line-height: 1.2;
 }
 .logo-text svg { color: var(--clr-accent); flex-shrink: 0; }
 
