@@ -54,6 +54,7 @@ body {
   color: var(--clr-text);
   background: var(--clr-white);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 img { max-width: 100%; height: auto; display: block; }
